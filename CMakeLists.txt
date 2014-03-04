@@ -4,7 +4,7 @@ project(flir_pantilt_d46)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS actionlib actionlib_msgs diagnostic_updater roscpp rospy sensor_msgs std_msgs)
+find_package(catkin REQUIRED COMPONENTS message_generation actionlib actionlib_msgs diagnostic_updater roscpp rospy sensor_msgs std_msgs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -60,6 +60,7 @@ add_action_files(
 catkin_package(
    INCLUDE_DIRS include
 #  LIBRARIES flir-pan-tilt-d46
+CATKIN_DEPENDS message_runtime
 #  CATKIN_DEPENDS actionlib diagnostic_updater roscpp rospy sensor_msgs
 #  DEPENDS system_lib
 )
@@ -98,6 +99,9 @@ target_link_libraries(ptu_d46
 
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
+
+
+install(PROGRAMS bin/ptu_action_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination

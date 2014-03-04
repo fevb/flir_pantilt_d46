@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#import roslib; roslib.load_manifest('ptu46')
+#import roslib; roslib.load_manifest('flir_pantilt_d46')
 import rospy
 import flir_pantilt_d46.msg
 import actionlib
